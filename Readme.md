@@ -337,6 +337,19 @@ This secondary constructor is created using the “constructor” keyword.
  and you cannot do that because the primary constructor may be called by some other class.
 
 
+fun main(args: Array<String>) {
+   val HUman = HUman("TutorialsPoint.com", 25)
+   print("${HUman.message}"+"${HUman.firstName}"+
+      "Welcome to the example of Secondary  constructor, Your Age is-${HUman.age}")
+}
+class HUman(val firstName: String, var age: Int) {
+   val message:String  = "Hey!!!"
+	constructor(name : String , age :Int ,message :String):this(name,age) {
+   }
+}
+
+op:
+Hey!!! TutorialsPoint.comWelcome to the example of Secondary  constructor, Your Age is- 25
 
 
 
