@@ -332,5 +332,11 @@ op:
 First Name = TutorialsPoint.com
 Age = 15
 
+This secondary constructor is created using the “constructor” keyword.
+ It is required whenever you want to create more than one constructor in Kotlin or whenever you want to include more logic in the primary constructor
+ and you cannot do that because the primary constructor may be called by some other class.
+
+
+
 
 
