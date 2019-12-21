@@ -8,4 +8,7 @@ fun gi(){
         print(i)
     if (7 in 1..6)
         print("yes")
+
+    for (j in 5..6)
+        print(j)
 }
