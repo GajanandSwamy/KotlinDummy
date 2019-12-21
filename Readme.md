@@ -348,7 +348,7 @@ class HUman(val firstName: String, var age: Int) {
    }
 }
 
-op:
+output:
 Hey!!! TutorialsPoint.comWelcome to the example of Secondary  constructor, Your Age is- 25
 
 
