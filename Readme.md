@@ -317,6 +317,20 @@ you can easily introduce a shorter name and use the same for future usage.
 
 Constructors
 =======================
+Kotlin has two types of constructor -
+one is the primary constructor and the other is the secondary constructor.
+
+fun main(args: Array<String>) {
+   val person1 = Person("TutorialsPoint.com", 15)
+   println("First Name = ${person1.firstName}")
+   println("Age = ${person1.age}")
+}
+class Person(val firstName: String, var age: Int) {
+}
+
+op:
+First Name = TutorialsPoint.com
+Age = 15
 
 
 
