@@ -476,7 +476,7 @@ Visibility Modifiers:
 
 2.If you mark a declaration private, it will only be visible inside the file containing the declaration;3
 3.If you mark it internal, it is visible everywhere in the same module;
-4.protected is not available for top-level declarations.
+4.protected visible inside the same class and it subclass.
 
 
 https://media.geeksforgeeks.org/wp-content/uploads/20190619121051/modi.jpg
@@ -493,22 +493,37 @@ class A private constructor (name : String) {
 }
 
 
+Function Extension
+====================
+
+Using extension, we will be able to add or remove
+ some method functionality even without inheriting or modifying them.
 
 
 
+ class Alien {
+    var skills : String = "null"
 
+    fun printMySkills() {
+       print(skills)
+    }
+ }
+ fun main(args: Array<String>) {
+    var  a1 = Alien()
+    a1.skills = "JAVA"
+    //a1.printMySkills()
 
+    var  a2 = Alien()
+    a2.skills = "SQL"
+    //a2.printMySkills()
 
+    var  a3 = Alien()
+    a3.skills = a1.addMySkills(a2)
+    a3.printMySkills()
+ }
+ fun Alien.addMySkills(a:Alien):String{
+    var a4 = Alien()
 
-
-
-
-
-
-
-
-
-
-
-
+    op:
+    JAVA SQL
 
