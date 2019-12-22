@@ -342,14 +342,173 @@ fun main(args: Array<String>) {
    print("${HUman.message}"+"${HUman.firstName}"+
       "Welcome to the example of Secondary  constructor, Your Age is-${HUman.age}")
 }
+
 class HUman(val firstName: String, var age: Int) {
    val message:String  = "Hey!!!"
 	constructor(name : String , age :Int ,message :String):this(name,age) {
    }
 }
 
+
+
 output:
 Hey!!! TutorialsPoint.comWelcome to the example of Secondary  constructor, Your Age is- 25
+
+
+
+Inheritance
+====================
+
+
+Like all other OOPS, Kotlin also provides this functionality using one keyword known as “:”.
+
+Everything in Kotlin is by default final, hence, we need to use the keyword “open” in front of the class declaration to make it allowable to inherit.
+Take a look at the following example of inheritance.
+
+
+import java.util.Arrays
+
+open class ABC {
+   fun think () {
+      print("Hey!! i am thiking ")
+   }
+}
+class BCD: ABC(){ // inheritence happend using default constructor
+}
+
+fun main(args: Array<String>) {
+   var  a = BCD()
+   a.think()
+}
+
+op:
+
+Hey!! i am thiking
+
+Now, what if we want to override the think() method in the child class
+
+
+import java.util.Arrays
+
+open class ABC {
+   open fun think () {
+      print("Hey!! i am thinking ")
+   }
+}
+class BCD: ABC() { // inheritance happens using default constructor
+   override fun think() {
+      print("I Am from Child")
+   }
+}
+fun main(args: Array<String>) {
+   var  a = BCD()
+   a.think()
+}
+
+
+op:
+I Am from Child
+
+
+Interface
+================
+In Kotlin, the interface works exactly similar to Java 8,
+ which means they can contain method implementation as well as abstract methods declaration.
+
+interface ExampleInterface  {
+   var myVar: Int            // abstract property
+   fun absMethod():String    // abstract method
+
+   fun hello() {
+      println("Hello there, Welcome to TutorialsPoint.Com!")
+   }
+}
+class InterfaceImp : ExampleInterface {
+   override var myVar: Int = 25
+   override fun absMethod() = "Happy Learning "
+}
+fun main(args: Array<String>) {
+   val obj = InterfaceImp()
+   println("My Variable Value is = ${obj.myVar}")
+   print("Calling hello(): ")
+   obj.hello()
+
+   print("Message from the Website-- ")
+   println(obj.absMethod())
+}
+
+op:
+Calling hello(): Hello there, Welcome to TutorialsPoint.Com!
+Message from the Website-- Happy Learning
+
+we will create two interfaces and later we will implement both the interfaces into a class.
+
+
+interface A {
+   fun printMe() {
+      println(" method of interface A")
+   }
+}
+interface B  {
+   fun printMeToo() {
+      println("I am another Method from interface B")
+   }
+}
+
+// implements two interfaces A and B
+class multipleInterfaceExample: A, B
+
+fun main(args: Array<String>) {
+   val obj = multipleInterfaceExample()
+   obj.printMe()
+   obj.printMeToo()
+}
+
+op:
+method of interface A
+I am another Method from interface B
+
+
+Visibility Modifiers:
+---------------------
+1.If you do not specify any visibility modifier, public is used by default,
+ which means that your declarations will be visible everywhere;
+
+2.If you mark a declaration private, it will only be visible inside the file containing the declaration;3
+3.If you mark it internal, it is visible everywhere in the same module;
+4.protected is not available for top-level declarations.
+
+
+https://media.geeksforgeeks.org/wp-content/uploads/20190619121051/modi.jpg
+
+By default constructors are public, but we can also change the visibility of constructor using the modifiers.
+
+class A (name : String) {
+      // other code
+}
+We must explicitly specify with constructor keyword while changing the visibility.
+
+class A private constructor (name : String) {
+      // other code
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
