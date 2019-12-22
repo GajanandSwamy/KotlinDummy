@@ -520,10 +520,14 @@ Using extension, we will be able to add or remove
     var  a3 = Alien()
     a3.skills = a1.addMySkills(a2)
     a3.printMySkills()
+
  }
  fun Alien.addMySkills(a:Alien):String{
     var a4 = Alien()
 
     op:
-    JAVA SQL
+    JAVA SQLdKK
+
+
+
 
