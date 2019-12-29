@@ -1000,6 +1000,249 @@ Prakash
 
 
 Kotlin Map Interface
+===========================
+
 Kotlin Map is an interface and generic collection of elements. Map interface holds data in the form of key and value pair. Map key are unique and holds only one value for each key. The key and value may be of different pairs such as <Int, Int>,<Int, String>, <Char, String>etc. This interface is immutable, fixed size and its methods support read only access.
 
 To use the Map interface we need to use its function called mapOf() or mapOf<k,v>().
+
+fun main(args: Array<String>){
+
+    val myMap: Map<Int, String> = mapOf<Int,String>(1 to "Ajay", 4 to "Vijay", 3 to "Prakash")
+    for(key in myMap.keys){
+        println("Element at key $key = ${myMap.get(key)}")
+    }
+}
+Output:
+
+Element at key 1 = Ajay
+Element at key 4 = Vijay
+Element at key 3 = Prakash
+
+Kotlin Map Interface Example 10 - mapOf().asIterable ()
+fun main(args: Array<String>){
+
+    val myMap: Map<Int,String> = mapOf<Int, String>(1 to "Ajay", 4 to "Vijay", 3 to "Prakash")
+
+    for(key in myMap.keys){
+        println("Element at key $key = ${myMap.get(key)}")
+    }
+      println(".......myMap.asIterable().....")
+      for(itr in myMap.asIterable()){
+          println("key = ${itr.key} value = ${itr.value}")
+      }
+}
+Output:
+
+Element at key 1 = Ajay
+Element at key 4 = Vijay
+Element at key 3 = Prakash
+.......myMap.asIterable().....
+key = 1 value = Ajay
+key = 4 value = Vijay
+key = 3 value = Prakash
+Kotlin Map Interface Example 11 - mapOf().iterator()
+fun main(args: Array<String>){
+
+    val myMap: Map<Int,String> = mapOf<Int, String>(1 to "Ajay", 4 to "Vijay", 3 to "Prakash")
+
+    for(key in myMap.keys){
+        println("Element at key $key = ${myMap.get(key)}")
+    }
+      println("......myMap.iterator()......")
+      for(itr1 in myMap.iterator()){
+          println("key = ${itr1.key} value = ${itr1.value}")
+      }
+}
+Output:
+
+Element at key 1 = Ajay
+Element at key 4 = Vijay
+Element at key 3 = Prakash
+......myMap.iterator()......
+key = 1 value = Ajay
+key = 4 value = Vijay
+key = 3 value = Prakash
+
+Kotlin HashMap class
+==========================
+Kotlin HashMap is class of collection based on MutableMap interface.
+Kotlin HashMap class implements the MutableMap interface using Hash table.
+It store the data in the form of key and value pair. It is represented as HashMap<key, value>
+or HashMap<K, V>.
+
+The implementation of HashMap class does not make guarantees about the order of data of key,
+ value and entries of collections.
+
+ Kotlin HashMap Example 1- empty HashMap
+ Let's create a simple example of HashMap class define with empty HashMap of <Int, String> and add elements later. To print the value of HashMap we will either use HashMap[key] or HashMap.get(key).
+
+ fun main(args: Array<String>){
+
+     val hashMap:HashMap<Int,String> = HashMap<Int,String>() //define empty hashmap
+     hashMap.put(1,"Ajay")
+     hashMap.put(3,"Vijay")
+     hashMap.put(4,"Praveen")
+     hashMap.put(2,"Ajay")
+     println(".....traversing hashmap.......")
+     for(key in hashMap.keys){
+         println("Element at key $key = ${hashMap[key]}")
+     }}
+ Output:
+
+ .....traversing hashmap.......
+ Element at key 1 = Ajay
+ Element at key 2 = Ajay
+ Element at key 3 = Vijay
+ Element at key 4 = Praveen
+
+ Kotlin HashMap: hashMapOf():
+ ================================
+
+A hashMapOf() is a function of HashMap class. It returns a new HashMap with the specified contents.
+ It contains pairs of data in the form of key and value.
+ HashMap is mutable collection which provides both read am write functionalities.
+
+ fun main(args: Array<String>){
+
+     val intMap: HashMap<Int, String> = hashMapOf<Int,String>(1 to "Ashu",4 to "Rohan", 2 to "Ajeet", 3 to "Vijay")
+
+     val stringMap: HashMap<String,String> = hashMapOf<String,String>("name" to "Ashu")
+     stringMap.put("city", "Delhi")
+     stringMap.put("department", "Development")
+     stringMap.put("hobby", "Playing")
+     val anyMap: HashMap<Any, Any> = hashMapOf<Any, Any>(1 to "Ashu", "name" to "Rohsan", 2 to 200)
+     println(".....traverse intMap........")
+     for(key in intMap.keys){
+         println(intMap[key])
+     }
+     println("......traverse stringMap.......")
+     for(key in stringMap.keys){
+         println(stringMap[key])
+     }
+     println("......traverse anyMap.......")
+     for(key in anyMap.keys){
+         println(anyMap[key])
+     }
+ }
+ Output:
+
+ .....traverse intMap........
+ Ashu
+ Ajeet
+ Vijay
+ Rohan
+ ......traverse stringMap.......
+ Ashu
+ Development
+ Delhi
+ Playing
+ ......traverse anyMap.......
+ Rohsan
+ Ashu
+ 200
+
+Kotlin Set Interface
+Kotlin Set interface is a generic unordered collection of elements.
+ Set interface does not support duplicate elements.
+ This interface is immutable in nature its methods supports read-only functionality of the set.
+
+Set interface uses setOf() function to create the list of object of set interface which
+contains list of elements.
+
+fun main(args: Array<String>){
+    val intSet = setOf(2,6,4,29,4,5)
+    val mySet: Set<Any> = setOf(2,6,4,29,4,5,"Ashu","Ajay")
+    println(".......print Int set.........")
+    for(element in intSet){
+        println(element)
+    }
+    println(".......print Any set.........")
+    for(element in mySet){
+        println(element)
+    }
+
+}
+Output:
+
+.......print Int set.........
+2
+6
+4
+29
+5
+.......print Any set.........
+2
+6
+4
+29
+5
+Ashu
+Ajay
+
+Kotlin MutableSet Interface
+===============================
+Kotlin MutableSet interface is a generic unordered collection of elements.
+MutableSet interface does not support duplicate elements.
+ This interface is mutable so its methods support read-write functionality supports adding and removing elements.
+
+Set interface uses mutableSetOf() function to create the list of object of
+set interface which contains list of elements.
+
+Kotlin MutableSet Interface Example 1
+Let's create an example of MutableSet declaring and traversing its elements.
+
+fun main(args: Array<String>) {
+    val intmutableSet = mutableSetOf<Int>(2, 6, 4, 29, 4, 5)
+    val anymutableSet: Set<Any> = setOf(2, 6, 4, 29, 4, 5, "Ajay", "Ashu", "Ajay")
+    println("....intmutableSet....")
+    for(element in intmutableSet){
+        println(element)
+    }
+    println("....anymutableSet......")
+    for(element in anymutableSet){
+        println(element)
+    }
+}
+Output:
+
+....intmutableSet....
+2
+6
+4
+29
+5
+....anymutableSet......
+2
+6
+4
+29
+5
+Ajay
+Ashu
+
+Kotlin HashSet class
+Kotlin HashSet is class of collection which extends AbstractMutableSet class and
+implements Set interface. The HashSet class store elements using hashing mechanism. It support both read and write functionality. It does not support duplicate value and does not make guarantees about the order sequence of element.
+
+fun main(args: Array<String>){
+    var hashSet = HashSet<Int>(6)
+    hashSet.add(2)
+    hashSet.add(13)
+    hashSet.add(6)
+    hashSet.add(5)
+    hashSet.add(2)
+    hashSet.add(8)
+    println("......traversing hashSet......")
+    for (element in hashSet){
+        println(element)
+    }
+}
+
+op:
+......traversing hashSet......
+8
+2
+13
+5
+6
