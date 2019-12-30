@@ -5,7 +5,7 @@ Om Namah Shivaya-Hare Krishna
 
 Concise: Kotlin reduces writing the extra codes. This makes Kotlin more concise.
 
-Null safety: Kotlin is null safety language. Kotlin aimed to eliminate the NullPointerException (null reference) from the code.Interoperable.
+Null safety:  Kotlin is null safety language. Kotlin aimed to eliminate the NullPointerException (null reference) from the code.Interoperable.
 
 Interoperable: Kotlin easily calls the Java code in a natural way as well as Kotlin code can be used by Java.
 
