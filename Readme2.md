@@ -1,7 +1,7 @@
 Om Namah Shivaya-Hare Krishna
 ==============================
 
-#Features of Kotlin
+# Features of Kotlin
 
 Concise: Kotlin reduces writing the extra codes. This makes Kotlin more concise.
 
