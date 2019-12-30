@@ -59,6 +59,7 @@ Ranges is another unique characteristic of Kotlin. Like Haskell,
 
 In the following example, we will see how Kotlin interprets this range operator.
 
+ ```
 fun main(args: Array<String>) {
    val i:Int  = 2
    for (j in 1..4)
@@ -69,6 +70,7 @@ fun main(args: Array<String>) {
    }
 }
 
+ ```
 0/p:1234we found your number --2
 
 If - Else
@@ -78,7 +80,7 @@ it is not a keyword. The expression “if” will return a value whenever necess
  Like other programming language, “if-else” block is used as an initial conditional checking operator.
 In the following example, we will compare two variables and provide the required output accordingly.
 
-
+ ```
 fun main(args: Array<String>) {
    val a:Int = 5
    val b:Int = 2
@@ -94,13 +96,13 @@ fun main(args: Array<String>) {
    // As expression
    // val max = if (a > b) a else b
 }
-
+ ```
 Maximum of a or b is 5
 
 Use of When
 
 same as switch in java
-
+ ```
 fun main(args: Array<String>) {
    val x:Int = 5
    when (x) {
@@ -112,7 +114,7 @@ fun main(args: Array<String>) {
       }
    }
 }
-
+ ```
 x is neither 1 nor 2
 
 
@@ -120,6 +122,7 @@ Kotlin provides another flexibility to the developer,
 where the developer can provide multiple checks in the same line by providing “,”
 inside the checks. Let us modify the above example as follows.
 
+ ```
 fun main(args: Array<String>) {
    val x:Int = 5
    when (x) {
@@ -130,13 +133,14 @@ fun main(args: Array<String>) {
       }
    }
 }
-
+ ```
 x is neither 1 nor 2
 
 
 For Loop
 =================
 
+ ```
 fun main(args: Array<String>) {
    val items = listOf(1, 22, 83, 4)
 
@@ -145,6 +149,7 @@ fun main(args: Array<String>) {
    }
 }
 
+ ```
 op:
 values of the array1
 values of the array2
@@ -154,6 +159,7 @@ values of the array4
 Following is another example of code, where we are using some
 library function to make our development work easier than ever before.
 
+ ```
 fun main(args: Array<String>) {
    val items = listOf(1, 22, 83, 4)
 
@@ -161,7 +167,7 @@ fun main(args: Array<String>) {
       println("the element at $index is $value")
    }
 }
-
+ ```
 
 the element at 0 is 1
 the element at 1 is 22
@@ -172,6 +178,8 @@ the element at 3 is 4
 while:
 =========
 
+ ```
+
 fun main(args: Array<String>) {
    var x:Int = 0
    println("Example of While Loop--")
@@ -181,6 +189,7 @@ fun main(args: Array<String>) {
       x++
    }
 }
+ ```
 Example of While Loop--
 0
 1
@@ -198,6 +207,7 @@ Kotlin also has another loop called Do-While loop,
 where the loop body will be executed once, only then the condition will be checked.
 The following example shows the usage of the Do-while loop.
 
+ ```
 fun main(args: Array<String>) {
    var x:Int = 0
    do {
@@ -206,6 +216,7 @@ fun main(args: Array<String>) {
    } while(x <= 50)
 }
 
+ ```
 I am inside Do block---10
 I am inside Do block---20
 I am inside Do block---30
@@ -217,6 +228,7 @@ I am inside Do block---60
 Return − Return is a keyword that returns some value to the calling function from the called function.
  In the following example, we will implement this scenario using our Kotlin coding ground.
 
+ ```
  fun main(args: Array<String>) {
     var x:Int = 10
     println("The value of X is--"+doubleMe(x))
@@ -225,10 +237,12 @@ Return − Return is a keyword that returns some value to the calling function f
     return 2*x;
  }
 
+ ```
  The value of X is--20
 
 Continue & Break:
 ===================
+ ```
 fun main(args: Array<String>) {
    println("Example of Break and Continue")
    myLabel@ for(x in 1..10) { // appling the custom label
@@ -241,7 +255,7 @@ fun main(args: Array<String>) {
       }
    }
 }
-
+ ```
 Example of Break and Continue
 I am inside else block with value1
 I am inside else block with value2
@@ -271,7 +285,7 @@ a class is a blueprint of a runtime entity and object is its state,
    hence, it can be accessed without creating any object of that class.
  In the following example, we will see how Kotlin interprets our nested class.
 
-
+ ```
 fun main(args: Array<String>) {
    val demo = Outer.Nested().foo() // calling nested class method
    print(demo)
@@ -281,7 +295,7 @@ class Outer {
       fun foo() = "Welcome to The TutorialsPoint.com"
    }
 }
-
+ ```
 op:
 Welcome to The TutorialsPoint.com
 
@@ -290,7 +304,7 @@ inner class
 When a nested class is marked as a “inner”, then it will be called as an Inner class.
  An inner class can be accessed by the data member of the outer class.
  In the following example, we will be accessing the data member of the outer class.
-
+ ```
 fun main(args: Array<String>) {
    val demo = Outer().Nested().foo() // calling nested class method
    print(demo)
@@ -301,7 +315,7 @@ class Outer {
       fun foo() = welcomeMessage
    }
 }
-
+ ```
 op:
 Welcome to the TutorialsPoint.com
 
@@ -319,7 +333,7 @@ Constructors
 =======================
 Kotlin has two types of constructor -
 one is the primary constructor and the other is the secondary constructor.
-
+ ```
 fun main(args: Array<String>) {
    val person1 = Person("TutorialsPoint.com", 15)
    println("First Name = ${person1.firstName}")
@@ -327,7 +341,7 @@ fun main(args: Array<String>) {
 }
 class Person(val firstName: String, var age: Int) {
 }
-
+ ```
 op:
 First Name = TutorialsPoint.com
 Age = 15
@@ -336,7 +350,7 @@ This secondary constructor is created using the “constructor” keyword.
  It is required whenever you want to create more than one constructor in Kotlin or whenever you want to include more logic in the primary constructor
  and you cannot do that because the primary constructor may be called by some other class.
 
-
+ ```
 fun main(args: Array<String>) {
    val HUman = HUman("TutorialsPoint.com", 25)
    print("${HUman.message}"+"${HUman.firstName}"+
@@ -350,7 +364,7 @@ class HUman(val firstName: String, var age: Int) {
 }
 
 
-
+ ```
 output:
 Hey!!! TutorialsPoint.comWelcome to the example of Secondary  constructor, Your Age is- 25
 
@@ -365,7 +379,7 @@ Like all other OOPS, Kotlin also provides this functionality using one keyword k
 Everything in Kotlin is by default final, hence, we need to use the keyword “open” in front of the class declaration to make it allowable to inherit.
 Take a look at the following example of inheritance.
 
-
+ ```
 import java.util.Arrays
 
 open class ABC {
@@ -380,14 +394,14 @@ fun main(args: Array<String>) {
    var  a = BCD()
    a.think()
 }
-
+ ```
 op:
 
 Hey!! i am thiking
 
 Now, what if we want to override the think() method in the child class
 
-
+ ```
 import java.util.Arrays
 
 open class ABC {
@@ -404,7 +418,7 @@ fun main(args: Array<String>) {
    var  a = BCD()
    a.think()
 }
-
+ ```
 
 op:
 I Am from Child
@@ -414,7 +428,7 @@ Interface
 ================
 In Kotlin, the interface works exactly similar to Java 8,
  which means they can contain method implementation as well as abstract methods declaration.
-
+ ```
 interface ExampleInterface  {
    var myVar: Int            // abstract property
    fun absMethod():String    // abstract method
@@ -436,14 +450,14 @@ fun main(args: Array<String>) {
    print("Message from the Website-- ")
    println(obj.absMethod())
 }
-
+ ```
 op:
 Calling hello(): Hello there, Welcome to TutorialsPoint.Com!
 Message from the Website-- Happy Learning
 
 we will create two interfaces and later we will implement both the interfaces into a class.
 
-
+ ```
 interface A {
    fun printMe() {
       println(" method of interface A")
@@ -463,7 +477,7 @@ fun main(args: Array<String>) {
    obj.printMe()
    obj.printMeToo()
 }
-
+ ```
 op:
 method of interface A
 I am another Method from interface B
@@ -481,24 +495,26 @@ Visibility Modifiers:
 
 https://media.geeksforgeeks.org/wp-content/uploads/20190619121051/modi.jpg
 
-By default constructors are public, but we can also change the visibility of constructor using the modifiers.
-
+By default constructors are public, but we can also change the visibility of
+ constructor using the modifiers.
+ ```
 class A (name : String) {
       // other code
 }
+ ```
 We must explicitly specify with constructor keyword while changing the visibility.
-
+ ```
 class A private constructor (name : String) {
       // other code
 }
-
+ ```
 
 Function Extension
 ====================
 
 Using extension, we will be able to add or remove
  some method functionality even without inheriting or modifying them.
-
+ ```
 class Alien {
    var skills : String = "null"
 
@@ -524,7 +540,7 @@ fun Alien.addMySkills(a:Alien):String{
    a4.skills = this.skills + " " +a.skills
    return a4.skills
 }
-
+ ```
  op:
  JAVA SQL
 
@@ -538,6 +554,7 @@ A companion object is an object which is
 A class which contains companion object can also be defined as extension function
 and property for the companion object.
 
+ ```
 class MyClass {
     companion object {
         fun create():String{
@@ -549,6 +566,7 @@ fun main(args: Array<String>){
 val instance = MyClass.create()
 }
 
+ ```
 op:
 calls create method of companion object
 
@@ -561,7 +579,7 @@ and all the primary constructor should have at least one parameter.
 3.Any data class cannot have a modifier like abstract and open or internal.
  Data class can be extended to other classes too.
 
-
+ ```
 fun main(args: Array<String>) {
    val book: Book = Book("Kotlin", "TutorialPoint.com", 5)
    println("Name of the Book is--"+book.name) // "Kotlin"
@@ -574,8 +592,10 @@ fun main(args: Array<String>) {
    println("Example of the hashCode function--"+book.hashCode())
 }
 
+
 data class Book(val name: String, val publisher: String, var reviewScore: Int)
 
+ ```
 op:
 
 Name of the Book is--"Kotlin"
@@ -596,7 +616,7 @@ Sealed classes are used for representing restricted class hierarchies,
 
 Sealed classes are not allowed to have non-private constructors (their constructors are private by default).
 
-
+ ```
 sealed class MyExample {
    class OP1 : MyExample() // MyExmaple class can be of two types only
    class OP2 : MyExample()
@@ -612,6 +632,7 @@ fun main(args: Array<String>) {
    println(output)
 }
 
+ ```
 op:
 option Two has been chosen
 
@@ -622,7 +643,7 @@ Kotlin supports “delegation” design pattern by introducing a new keyword “
  Using this keyword or delegation methodology, Kotlin allows the derived class to access all the implemented public methods of an interface through a specific object.
 The following example demonstrates how this happens in Kotlin.
 
-
+ ```
 interface Base {
    fun printMe() //abstract method
 }
@@ -636,7 +657,7 @@ fun main(args: Array<String>) {
    Derived(b).printMe() // prints 10 :: accessing the printMe() method
 }
 
-
+ ```
 op:
 10
 
@@ -647,14 +668,14 @@ Let us take a look at the following to understand how it works.
 
 only for val
 
-
+ ```
 val myVar: String by lazy {
    "Hello"
 }
 fun main(args: Array<String>) {
    println(myVar +" My dear friend")
 }
-
+ ```
 op:
 Hello My dear friend
 
@@ -675,6 +696,7 @@ syntax:
 { variable -> body_of_function}
 
 addition of two numbers:
+ ```
 
 fun main(args: Array<String>){
     val myLambda: (Int) -> Unit= {s: Int -> println(s) } //lambda function
@@ -685,6 +707,8 @@ fun addNumber(a: Int, b: Int, mylambda: (Int) -> Unit ){   //high level function
     mylambda(add) // println(add)
 }
 
+ ```
+
 op:
 15
 
@@ -694,6 +718,7 @@ High order function (Higher level function) is a function which accepts function
  returns a function or can do both. Means, instead of passing Int, String,
 or other types as a parameter in a function we can pass a function as a parameter in other function.
 
+ ```
 fun myFun(org: String,portal: String, fn: (String,String) -> String): Unit {
     val result = fn(org,portal)
     println(result)
@@ -704,6 +729,7 @@ fun main(args: Array<String>){
     myFun("sssit.org","javatpoint.com",fn)
 }
 
+ ```
 op:
 sssit.org develop javatpoint.com
 
@@ -715,6 +741,7 @@ An inline function is declare with a keyword inline.
  The use of inline function enhances the performance of higher order function.
 The inline function tells the compiler to copy parameters and functions to the call site.
 
+ ```
 fun main(args: Array<String>) {
 inlineFunction({ println("calling inline functions")})
 }
@@ -724,6 +751,7 @@ myFun()
     print("code inside inline function")
 }
 
+ ```
 op:
 calling inline functions
 code inside inline function
@@ -737,7 +765,7 @@ Following is the basic syntax of the destructuring declaration.
 
 val (name, age) = person
 
-
+ ```
 fun main(args: Array<String>) {
    val s = Student("TutorialsPoint.com","Kotlin")
    val (name,subject) = s
@@ -748,12 +776,14 @@ data class Student( val a :String,val b: String ){
    var subject:String = b
 }
 
+ ```
 op:
 You are learning Kotlin from TutorialsPoint.com
 
 
 Kotlin Exception Handling
 ===============================
+ ```
 
 try {
     // some code
@@ -764,12 +794,13 @@ catch (e: SomeException) {
 finally {
     // optional finally block
 }
-
+ ```
 Note: Kotlin does not support checked exception.
 
 
 Note: At a time only one exception is occured and at a time only one catch block is executed.
 
+ ```
 fun main(args: Array<String>){
     try {
         val a = IntArray(5)
@@ -787,6 +818,7 @@ fun main(args: Array<String>){
     println("code after try catch...")
 }
 
+ ```
 Output at compile time
 
 warning : division by zero
@@ -821,13 +853,14 @@ var myArray = Array<Int>(5){0}
 
 Kotlin array declaration - using arrayOf function
 =====================================================
+
 var myArray1 = arrayOf(1,10,4,6,15)
 var myArray2 = arrayOf<Int>(1,10,4,6,15)
 val myArray3 = arrayOf<String>("Ajay","Prakesh","Michel","John","Sumit")
 var myArray4= arrayOf(1,10,4, "Ajay","Prakesh")
 
 Kotlin Array Example 1:
-
+ ```
 fun main(args: Array<String>){
     var myArray = Array<Int>(5){0}
 
@@ -835,6 +868,7 @@ fun main(args: Array<String>){
         println(element)
     }
 }
+ ```
 Output:
 
 0
@@ -848,6 +882,7 @@ Kotlin Array Example 2:
 We can also able to rewrite the value of array using its index value.
 Since we can able to modify the value of array, so it is called as mutable in nature. For example:
 
+ ```
 fun main(args: Array<String>){
     var myArray = Array<Int>(5){0}
 
@@ -858,6 +893,7 @@ fun main(args: Array<String>){
         println(element)
     }
 }
+ ```
 Output:
 
 0
@@ -873,6 +909,7 @@ The List interface inherits form Collection<T> class. It is immutable and its me
 
 To use the List interface we need to use its function called listOf(), listOf<E>().
 
+ ```
 fun main(args: Array<String>){
     var list = listOf(1,2,3,"Ajay","Vijay","Prakash")//read only, fix-size
     for(element in list){
@@ -883,7 +920,7 @@ fun main(args: Array<String>){
         println(list[index])
     }
 }
-
+ ```
 op:
 1
 2
@@ -898,6 +935,7 @@ Kotlin MutableList (mutableListOf())
 The methods of MutableList interface supports both read and write functionalities.
 Once the elements in MutableList have declared,
  it can be added more elements in it or removed, so it has no fixed size length.
+ ```
 
  fun main(args: Array<String>){
      var mutableList = mutableListOf("Ajay","Vijay","Prakash","Vijay")
@@ -910,6 +948,8 @@ Once the elements in MutableList have declared,
          println(mutableList[index])
      }
  }
+ 
+  ```
  Output:
 
  Ajay
@@ -930,6 +970,7 @@ Kotlin ArrayList class is used to create a dynamic array. Which means the size o
 Kotlin ArrayList class follows the sequence of insertion order.
  ArrayList class is non synchronized and it may contains duplicate elements. The elements of ArrayList class are accessed randomly as it works on index basis.
 
+ ```
 fun main(args: Array<String>){
 
     val arrayList = ArrayList<String>()//Creating an empty arraylist
@@ -943,7 +984,7 @@ fun main(args: Array<String>){
         println(i)
     }
 }
-
+ ```
 Output:
 
 ......print ArrayList......
@@ -957,6 +998,7 @@ Kotlin ArrayList: arrayListOf()
 An arrayListOf() is a function of ArrayList class.
 ArrayList is mutable which means it provides both read am write functionalities.
 The arrayListOf() function returns an ArrayList type.
+ ```
 
 fun main(args: Array<String>){
 
@@ -978,6 +1020,8 @@ fun main(args: Array<String>){
         println(element)
     }
 }
+
+ ```
 Output:
 
 print int ArrayList
@@ -1006,6 +1050,7 @@ Kotlin Map is an interface and generic collection of elements. Map interface hol
 
 To use the Map interface we need to use its function called mapOf() or mapOf<k,v>().
 
+ ```
 fun main(args: Array<String>){
 
     val myMap: Map<Int, String> = mapOf<Int,String>(1 to "Ajay", 4 to "Vijay", 3 to "Prakash")
@@ -1013,6 +1058,7 @@ fun main(args: Array<String>){
         println("Element at key $key = ${myMap.get(key)}")
     }
 }
+ ```
 Output:
 
 Element at key 1 = Ajay
@@ -1020,6 +1066,7 @@ Element at key 4 = Vijay
 Element at key 3 = Prakash
 
 Kotlin Map Interface Example 10 - mapOf().asIterable ()
+ ```
 fun main(args: Array<String>){
 
     val myMap: Map<Int,String> = mapOf<Int, String>(1 to "Ajay", 4 to "Vijay", 3 to "Prakash")
@@ -1032,6 +1079,7 @@ fun main(args: Array<String>){
           println("key = ${itr.key} value = ${itr.value}")
       }
 }
+ ```
 Output:
 
 Element at key 1 = Ajay
@@ -1042,6 +1090,7 @@ key = 1 value = Ajay
 key = 4 value = Vijay
 key = 3 value = Prakash
 Kotlin Map Interface Example 11 - mapOf().iterator()
+ ```
 fun main(args: Array<String>){
 
     val myMap: Map<Int,String> = mapOf<Int, String>(1 to "Ajay", 4 to "Vijay", 3 to "Prakash")
@@ -1054,6 +1103,7 @@ fun main(args: Array<String>){
           println("key = ${itr1.key} value = ${itr1.value}")
       }
 }
+ ```
 Output:
 
 Element at key 1 = Ajay
@@ -1077,6 +1127,7 @@ The implementation of HashMap class does not make guarantees about the order of 
  Kotlin HashMap Example 1- empty HashMap
  Let's create a simple example of HashMap class define with empty HashMap of <Int, String> and add elements later. To print the value of HashMap we will either use HashMap[key] or HashMap.get(key).
 
+
  fun main(args: Array<String>){
 
      val hashMap:HashMap<Int,String> = HashMap<Int,String>() //define empty hashmap
@@ -1087,7 +1138,9 @@ The implementation of HashMap class does not make guarantees about the order of 
      println(".....traversing hashmap.......")
      for(key in hashMap.keys){
          println("Element at key $key = ${hashMap[key]}")
-     }}
+     }
+     }
+      
  Output:
 
  .....traversing hashmap.......
@@ -1103,6 +1156,7 @@ A hashMapOf() is a function of HashMap class. It returns a new HashMap with the 
  It contains pairs of data in the form of key and value.
  HashMap is mutable collection which provides both read am write functionalities.
 
+ ```
  fun main(args: Array<String>){
 
      val intMap: HashMap<Int, String> = hashMapOf<Int,String>(1 to "Ashu",4 to "Rohan", 2 to "Ajeet", 3 to "Vijay")
@@ -1125,6 +1179,8 @@ A hashMapOf() is a function of HashMap class. It returns a new HashMap with the 
          println(anyMap[key])
      }
  }
+ 
+  ```
  Output:
 
  .....traverse intMap........
@@ -1150,6 +1206,7 @@ Kotlin Set interface is a generic unordered collection of elements.
 Set interface uses setOf() function to create the list of object of set interface which
 contains list of elements.
 
+ ```
 fun main(args: Array<String>){
     val intSet = setOf(2,6,4,29,4,5)
     val mySet: Set<Any> = setOf(2,6,4,29,4,5,"Ashu","Ajay")
@@ -1163,6 +1220,7 @@ fun main(args: Array<String>){
     }
 
 }
+ ```
 Output:
 
 .......print Int set.........
@@ -1192,6 +1250,7 @@ set interface which contains list of elements.
 Kotlin MutableSet Interface Example 1
 Let's create an example of MutableSet declaring and traversing its elements.
 
+ ```
 fun main(args: Array<String>) {
     val intmutableSet = mutableSetOf<Int>(2, 6, 4, 29, 4, 5)
     val anymutableSet: Set<Any> = setOf(2, 6, 4, 29, 4, 5, "Ajay", "Ashu", "Ajay")
@@ -1204,6 +1263,7 @@ fun main(args: Array<String>) {
         println(element)
     }
 }
+ ```
 Output:
 
 ....intmutableSet....
@@ -1225,6 +1285,7 @@ Kotlin HashSet class
 Kotlin HashSet is class of collection which extends AbstractMutableSet class and
 implements Set interface. The HashSet class store elements using hashing mechanism. It support both read and write functionality. It does not support duplicate value and does not make guarantees about the order sequence of element.
 
+ ```
 fun main(args: Array<String>){
     var hashSet = HashSet<Int>(6)
     hashSet.add(2)
@@ -1238,7 +1299,7 @@ fun main(args: Array<String>){
         println(element)
     }
 }
-
+ ```
 op:
 ......traversing hashSet......
 8
