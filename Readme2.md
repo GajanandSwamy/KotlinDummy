@@ -63,7 +63,8 @@ val text3 ="Hello, \nJavaTpoint"
   ```
 
 # Kotlin if-else Expression
-     As if is an expression it is not used as standalone, it is used with if-else expression and the result of an if-else expression is assign into a variable.
+     As if is an expression it is not used as standalone,
+     it is used with if-else expression and the result of an if-else expression is assign into a variable.
 
      Syntax of if-else expression
 
@@ -77,4 +78,96 @@ val text3 ="Hello, \nJavaTpoint"
 
      ```
 
-    ll
+Multiple Statement of when Using Braces
+
+```
+fun main(args: Array<String>){
+    var number = 1
+    when(number) {
+        1 -> {
+            println("Monday")
+            println("First day of the week")
+        }
+        7 -> println("Sunday")
+        else -> println("Other days")
+    }
+}
+```
+
+# Using when in the range
+
+```
+fun main(args: Array<String>){
+    var number = 7
+    when(number) {
+        in 1..5 -> println("Input is provided in the range 1 to 5")
+        in 6..10 -> println("Input is provided in the range 6 to 10")
+        else -> println("none of the above")
+    }
+}
+```
+
+
+# Kotlin Labeled break Expression
+
+```
+fun main(args: Array<String>) {
+    loop@ for (i in 1..3) {
+        for (j in 1..3) {
+            println("i = $i and j = $j")
+            if (i == 2)
+                break@loop
+        }
+    }
+}
+
+
+op:
+i = 1 and j = 1
+i = 1 and j = 2
+i = 1 and j = 3
+i = 2 and j = 1
+
+```
+Default argument : passing all argument in function call
+
+```
+fun main(args: Array<String>) {
+    run(3,'a')
+}
+fun run(num:Int= 5, latter: Char ='x'){
+    print("parameter in function definition $num and $latter")
+}
+```
+
+op:
+parameter in function definition 3 and a
+
+
+Constructor of array:
+
+Array constructor is declared with specified size and init function.
+The init function is used to returns the elements of array with their index.
+
+Array(size: Int, init: (Int) -> T)
+
+
+Kotlin Array Example 1:
+
+```
+fun main(args: Array<String>){
+var myArray = Array<Int>(5){0}
+
+    for(element in myArray){
+println(element)
+    }
+}
+```
+
+op:
+
+0
+0
+0
+0
+0
