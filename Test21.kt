@@ -14,6 +14,7 @@ fun main(args: Array<String>){
 
      validate(12)
     println("code after try catch...")
+    println()
 }
 
 fun validate(i: Int) {

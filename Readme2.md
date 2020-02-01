@@ -171,3 +171,314 @@ op:
 0
 0
 0
+
+Note: Kotlin does not support checked exception.
+
+Note: The finally block will not be executed if program exits
+ (either by calling exitProcess(Int) or any error that causes the process to abort).
+
+Note: At a time only one exception is occured and at a time only one catch block is executed.
+
+Rule: All catch blocks must be placed from most specific to general
+i.e. catch for ArithmeticException must come before catch for Exception.
+
+# Kotlin Null Safety
+
+NullPointerException can only possible on following causes:
+
+An forcefully call to throw NullPointerException();
+
+An uninitialized of this operator which is available in a constructor passed and used somewhere.
+
+Use of external java code as Kotlin is Java interoperability.
+
+
+Nullable Types
+Nullable types are declared by putting a ? behind the String as:
+
+```
+var str1: String? = "hello"
+str1 = null // ok
+```
+
+Non Nullable Types
+Non nullable types are normal strings which are declared as String types as:
+
+
+val str: String = null // compile error
+str = "hello" // compile error Val cannot be reassign
+var str2: String = "hello"
+str2 = null // compile error
+
+
+Unsafe cast operator: as
+===============================
+
+A nullable string (String?) cannot be cast to non nullabe string (String), this throw an exception.
+
+```
+fun main(args: Array<String>){
+val obj: Any? = null
+val str: String = obj as String
+println(str)
+ }
+
+ Exception in thread "main" kotlin.TypeCastException: null cannot be cast to non-null type kotlin.String
+  at TestKt.main(Test.kt:3)
+
+```
+
+Kotlin Safe cast operator: as?
+
+Kotlin provides a safe cast operator as? for safely cast to a type.
+It returns a null if casting is not possible rather than throwing an ClassCastException exception.
+
+```
+fun main(args: Array<String>){
+
+val location: Any = "Kotlin"
+val safeString: String? = location as? String
+val safeInt: Int? = location as? Int
+println(safeString)
+println(safeInt)
+}
+
+```
+
+Kotlin Elvis Operator example
+
+Elvis operator returns expression left to ?: i.e -1. (str?. length)
+if it is not null otherwise it returns expression right to (?:)i.e(-1).
+The expression right side of Elvis operator evaluated only if the left side returns null.
+
+```
+fun main(args: Array<String>){
+
+var str: String? = null
+var str2: String? = "May be declare nullable string"
+var len1:  Int = str ?.length ?: -1
+var len2:  Int = str2 ?.length ?:  -1
+
+println("Length of str is ${len1}")
+println("Length of str2 is ${len2}")
+}
+
+```
+
+op:
+Length of str is -1
+Length of str2 is 30
+
+# Kotlin Reflection
+
+Reflection is a set of language and library features that examines the structure of program at runtime
+
+Class Reference
+Class reference is used to obtain the reference of KClass object.
+To obtain the reference of statically Kclass, we should use the class literal(i.e. use double colons).
+
+Syntax of class reference:
+
+```
+val c1 = String::class
+val c2 = MyClass::class
+```
+
+Note: KClass represents a class and provides examination capabilities.
+To obtain the instance of this class use syntax ::class.
+
+# Functional Reference:
+
+Kotlin functional is used to obtain the reference of function using double colons.
+The reference of function can be used in another
+function as a parameter. To use this reference in another function we use the :: operator:
+
+```
+fun main(args: Array<String>) {
+    fun isPositive(x: Int) = x > 0
+val numbers = listOf(-10, -5, 0, 5, 10)
+println(numbers.filter(::isPositive))
+}
+```
+
+op:
+[5,10]
+
+# Property Reference
+
+We can also access the properties as first-class object in Kotlin,
+to access object property we can use :: operator:
+
+```
+fun main(args: Array<String>) {
+println(::x.get())
+println(::x.name)
+println(::y.set(10))
+}
+val x = 5
+var y = 5
+```
+
+op:
+5
+x
+10
+
+Kotlin Nested class
+=====================================
+ Nested class is by default static, so its data member and member function can be
+ accessed without creating an object of class.
+ Nested class cannot be able to access the data member of outer class.
+
+```
+ class outerClass{
+     private var name: String = "Ashu"
+     class nestedClass{
+ var description: String = "code inside nested class"
+         private var id: Int = 101
+         fun foo(){
+           //  print("name is ${name}") // cannot access the outer class member
+ println("Id is ${id}")
+         }
+     }
+ }
+ fun main(args: Array<String>){
+ // nested class must be initialize
+ println(outerClass.nestedClass().description) // accessing property
+ var obj = outerClass.nestedClass() // object creation
+     obj.foo() // access member function
+ }
+```
+
+Kotlin Inner class
+======================
+The advantage of inner class over nested class is that, it is able to access members of
+outer class even it is private. Inner class keeps a reference to an object of outer class.
+
+```
+class outerClass{
+     private  var name: String = "Ashu"
+     inner class  innerClass{
+var description: String = "code inside inner class"
+        private var id: Int = 101
+       fun foo(){
+println("name is ${name}") // access the outer class member even private
+println("Id is ${id}")
+        }
+    }
+}
+fun main(args: Array<String>){
+println(outerClass().innerClass().description) // accessing property
+var obj = outerClass().innerClass() // object creation
+    obj.foo() // access member function
+
+}
+```
+
+Primary constructor with initializer block
+===================
+The primary constructor does not contain any code. Initializer blocks are used to initialization of code. This block is prefixed with init keyword. At the period of instance initialization,
+ the initialized blocks are executed in the same order as they appear in class body.
+
+```
+ class myClass(name: String, id: Int) {
+ val e_name: String
+ var e_id: Int
+ init{
+ e_name = name.capitalize()
+ e_id = id
+
+ println("Name = ${e_name}")
+ println("Id = ${e_id}")
+     }
+ }
+ fun main(args: Array<String>){
+ val myclass = myClass ("Ashu", 101)
+
+ }
+ ```
+
+ By using primary as well secondary constructor in same class, secondary constructor needs to authorize to primary constructor.
+ Authorization to another constructor in same class is done using this() keyword.
+
+  ```
+ class myClass(password: String){
+
+     constructor(name: String, id: Int, password: String): this(password){
+ println("Name = ${name}")
+ println("Id = ${id}")
+ println("Password = ${password}")
+     }
+ }
+ fun main(args: Array<String>){
+ val myclass = myClass ("Ashu", 101, "mypassword")
+
+ }
+  ```
+
+  In Kotlin, one secondary constructor can call another
+   secondary constructor of same class. This is done by using this() keyword.
+
+  ```
+   class myClass{
+
+       constructor(name: String, id: Int): this(name,id, "mypassword"){
+   println("this executes next")
+   println("Name = ${name}")
+   println("Id = ${id}")
+       }
+
+       constructor(name: String, id: Int,pass: String){
+   println("this executes first")
+   println("Name = ${name}")
+   println("Id = ${id}")
+   println("Password = ${pass}")
+       }
+   }
+   fun main(args: Array<String>){
+   val myclass = myClass ("Ashu", 101)
+
+   }
+
+   ```
+
+ n Kotlin, one derived class secondary constructor can call the base class secondary constructor.
+ This is done using super keyword, this is the concept of inheritance.
+
+ ```
+
+ open class Parent{
+
+     constructor(name: String, id: Int){
+ println("this executes first")
+ println("Name = ${name}")
+ println("Id = ${id}")
+     }
+
+     constructor(name: String, id: Int,pass: String){
+ println("this executes third")
+ println("Name = ${name}")
+ println("Id = ${id}")
+ println("Password = ${pass}")
+     }
+ }
+ class Child: Parent{
+     constructor(name: String, id: Int): super(name,id){
+ println("this executes second")
+ println("Name = ${name}")
+ println("Id = ${id}")
+     }
+
+    constructor(name: String, id: Int,pass: String):super(name,id,"password"){
+ println("this executes forth")
+ println("Name = ${name}")
+ println("Id = ${id}")
+ println("Password = ${pass}")
+     }
+ }
+ fun main(args: Array<String>){
+ val obj1 = Child("Ashu", 101)
+ val obj2 = Child("Ashu", 101,"mypassword")
+ }
+
+ ```

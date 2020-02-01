@@ -76,6 +76,19 @@ fun main(args: Array<String>) {
     }
     ll("k","k",my)
 
+    var hif = "Hello, world"
+    println(hif[0])
+    println(hif[3])
+    println(hif.length-1)
+
+//    var str1 = "hello"
+//    var str2 = "hello"
+//    println(str1==str2)
+    val str1 = buildString { "string value" }
+    val str2 = buildString { "string value" }
+    println(str1===str2)
+
+
 }
 
 
