@@ -498,7 +498,8 @@ The primary constructor does not contain any code. Initializer blocks are used t
   Declaring anything makes that field marked as internal field.The internal modifier makes the field visible only
   inside the module in which it is implemented.
 
-  ```
+
+ ```
 internal class Example{
     internal val x = 5
     internal fun getValue(){
@@ -506,8 +507,9 @@ internal class Example{
     }
 }
 internal val y = 10
+ ```
 
-   ```
+
 * A private modifier allows the declaration to be accessible only within the block in which properties,
   fields, etc. are declare. The private modifier declaration does not allow to access the outside the scope.
   A private package can be accessible within that specific file.
