@@ -869,7 +869,6 @@ We can also assign the default arguments in primary constructor of data class.
 These default values can be changed later on program if required.
 
 ```
-
 data class Product(var item: String = "laptop", var price: Int = 25000)
 
 fun main(agrs: Array<String>) {
