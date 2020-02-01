@@ -746,6 +746,7 @@ Kotlin Interface
 ```
 
 interface MyInterface {
+
 val id: Int // abstract property
     fun absMethod()// abstract method
     fun doSomthing() {
