@@ -679,3 +679,209 @@ println(p.color)
 
 }
 ```
+
+Kotlin Abstract class
+=============================
+
+A class which is declared with abstract keyword is known as abstract class.
+An abstract class cannot be instantiated. Means, we cannot create object of abstract class.
+The method and properties of abstract class are non-abstract unless
+they are explicitly declared as abstract.
+
+```
+
+abstract class Car{
+    abstract fun run()
+}
+class Honda: Car(){
+   override fun run(){
+println("Honda is running safely..")
+   }
+}
+fun main(args: Array<String>){
+val obj = Honda()
+obj.run();
+}
+
+```
+
+Note:
+A non-abstract open member function can be over ridden in an abstract class.
+
+```
+open class Car {
+    open fun run() {
+println("Car is running..")
+    }
+}
+abstract class Honda : Car() {
+    override abstract fun run()
+}
+class City: Honda(){
+    override fun run() {
+      //  TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+println("Honda City is running..")
+    }
+}
+fun main(args: Array<String>){
+val car = Car()
+car.run()
+val city = City()
+city.run()
+}
+```
+
+op:
+
+```
+
+Car is running..
+Honda City is running..
+
+```
+
+Kotlin Interface
+==================
+
+```
+
+interface MyInterface {
+val id: Int // abstract property
+    fun absMethod()// abstract method
+    fun doSomthing() {
+      // optional body
+    }
+}
+
+```
+
+The methods which are only declared without their method body are abstract by default.
+
+Following are the reasons to use interface:
+
+Using interface supports functionality of multiple inheritance.
+It can be used achieve to loose coupling.
+It is used to achieve abstraction.
+
+Resolving different Interfaces having same method overriding conflicts
+=========================================================================
+
+```
+interface MyInterface1 {
+    fun doSomthing() {
+println("MyInterface 1 doing some work")
+    }
+        fun absMethod()
+}
+interface MyInterface2 {
+    fun doSomthing(){
+println("MyInterface 2 doing some work")
+    }
+    fun absMethod(name: String)
+}
+class MyClass : MyInterface1, MyInterface2 {
+    override fun doSomthing() {
+        super<MyInterface2>.doSomthing()
+    }
+
+    override fun absMethod() {
+println("Implements absMethod() of MyInterface1")
+    }
+    override fun absMethod(n: String) {
+println("Implements absMethod(name) of MyInterface2 name is  $n")
+    }
+}
+fun main(args: Array<String>) {
+val myClass = MyClass()
+myClass.doSomthing()
+myClass.absMethod()
+myClass.absMethod("Ashu")
+}
+
+```
+
+op:
+
+```
+
+MyInterface 2 doing some work
+Implements absMethod() of MyInterface1
+Implements absMethod(name) of MyInterface2 name is  Ashu
+
+```
+
+Kotlin Data class
+===================
+
+Data class is a simple class which is used to hold data/state and contains standard functionality.
+A data keyword is used to declare a class as a data class.
+
+Data class internally contains the following functions:
+
+equals(): Boolean
+hashCode(): Int
+toString(): String
+component() functions corresponding to the properties
+copy()
+Due to presence of above functions internally in data class, the data class eliminates the boilerplate code.
+
+
+Requirements of data class
+In order to create a data class, we need to fulfill the following requirements:
+
+Contain primary constructor with at least one parameter.
+Parameters of primary constructor marked as val or var.
+Data class cannot be abstract, inner, open or sealed.
+Before 1.1,data class may only implements interface. After that data classes may extend other classes.
+
+
+Kotlin data class copy() method
+---------------------------------
+The data class provides a copy() method which is used to create a copy (or colon) of object.
+ Using copy() method, some or all properties of object can be altered.
+
+```
+ data class Product(var item: String, var price: Int)
+
+ fun main(agrs: Array<String>) {
+ val p1 = Product("laptop", 25000)
+ println("p1 object contain data : $p1")
+ val p2 = p1.copy()
+ println("p2 copied object contains default data of p1: $p2")
+ val p3 = p1.copy(price = 20000)
+ println("p3 contain altered data of p1 : $p3")
+ }
+
+```
+
+output:
+
+```
+p1 object contain data : Product(item=laptop, price=25000)
+p2 copied object contains default data of p1: Product(item=laptop, price=25000)
+p3 contain altered data of p1 : Product(item=laptop, price=20000)
+```
+
+Default and named arguments in data class
+==========================================
+
+We can also assign the default arguments in primary constructor of data class.
+These default values can be changed later on program if required.
+
+```
+
+data class Product(var item: String = "laptop", var price: Int = 25000)
+
+fun main(agrs: Array<String>) {
+val p1 = Product(price = 20000)
+println(p1)
+}
+
+```
+
+op:
+
+```
+Product(item=laptop, price=20000)
+```
+
