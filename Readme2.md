@@ -482,3 +482,200 @@ The primary constructor does not contain any code. Initializer blocks are used t
  }
 
  ```
+
+ Kotlin Visibility Modifier
+----------------------------------
+
+* A public modifier is accessible from everywhere in the project. It is a default modifier in Kotlin.
+  If any class, interface etc. are not specified with any access modifier then that class, interface etc.
+  are used in public scope.
+
+* A protected modifier with class or interface allows visibility to its class or subclass only.
+  A protected declaration (when overridden) in its subclass is also protected modifier unless
+  it is explicitly changed.
+
+* The internal modifiers are newly added in Kotlin, it is not available in Java.
+  Declaring anything makes that field marked as internal field.The internal modifier makes the field visible only
+  inside the module in which it is implemented.
+
+  ```
+internal class Example{
+    internal val x = 5
+    internal fun getValue(){
+
+    }
+}
+internal val y = 10
+
+   ```
+* A private modifier allows the declaration to be accessible only within the block in which properties,
+  fields, etc. are declare. The private modifier declaration does not allow to access the outside the scope.
+  A private package can be accessible within that specific file.
+
+
+  Kotlin Inheritance
+  ======================
+
+  As Kotlin classes are final by default, they cannot be inherited simply.
+  We use the open keyword before the class to inherit a class and make it to non-final
+
+
+  When a base and derived class both contains different numbers of parameters
+  in their primary constructor then base class parameters are initialized form derived class object.
+
+  ```
+  open class Employee(name: String,salary: Float) {
+  init {
+  println("Name is $name.")
+  println("Salary is $salary")
+      }
+  }
+  class Programmer(name: String, dept: String, salary: Float):Employee(name,salary){
+  init {
+  println("Name $name of department $dept with salary $salary.")
+      }
+      fun doProgram() {
+  println("Programming is my passion.")
+
+      }
+  }
+  class Salesman(name: String, dept: String, salary: Float):Employee(name,salary){
+  init {
+  println("Name $name of department $dept with salary $salary.")
+      }
+      fun fieldWork() {
+  println("Travelling is my hobby.")
+
+      }
+  }
+  fun main(args: Array<String>){
+  val obj1 = Programmer("Ashu", "Development", 40000f)
+      obj1.doProgram()
+  println()
+  val obj2 = Salesman("Ajay", "Marketing", 30000f)
+      obj2.fieldWork()
+  }
+
+  ```
+   op:
+
+  ```
+  Name is Ashu.
+  Salary is 40000.0
+  Name Ashu of department Development with salary 40000.0.
+  Programming is my passion.
+
+  Name is Ajay.
+  Salary is 30000.0
+  Name Ajay of department Marketing with salary 30000.0.
+  Travelling is my hobby.
+
+  ```
+
+  If derived class does not contain any primary constructor
+  then it is required to call the base class secondary constructor
+  from derived class using super keyword.
+
+  ```
+  open class Patent {
+
+      constructor(name: String, id: Int) {
+  println("execute super constructor $name: $id")
+      }
+  }
+
+  class Child: Patent {
+
+      constructor(name: String, id: Int, dept: String): super(name, id) {
+          print("execute child class constructor with property $name, $id, $dept")
+      }
+  }
+  fun main(args: Array<String>) {
+  val child = Child("Ashu",101, "Developer")
+  }
+
+  ```
+
+  Kotlin Method Overriding
+  ==============================
+
+  KotlinRules of method overriding
+
+  1.Parent class and its method or property which is to be overridden must be open (non-final).
+  2.Method name of base class and derived class must have same.
+  3.Method must have same parameter as in base class.
+
+  Derived class can also call its superclass methods and property using super keyword.
+
+  ```
+  open class Bird {
+      open var color = "Black"
+      open fun fly() {
+  println("Bird is flying...")
+      }
+  }
+  class Parrot: Bird() {
+      override var color = "Green"
+      override fun fly() {
+          super.fly()
+  println("Parrot is flying...")
+
+      }
+  }
+
+  fun main(args: Array<String>) {
+  val p = Parrot()
+      p.fly()
+  println(p.color)
+
+  }
+
+  ```
+
+  op:
+
+  ```
+
+  Bird is flying...
+  Parrot is flying...
+  Green
+
+  ```
+
+  Kotlin multiple class implementation
+--------------------------------------------
+
+In Kotlin, derived class uses a supertype name in angle brackets,
+e.gsuper<Base> when it implements same function name provided in multiple classes.
+
+For example, a derived class Parrotextends its superclass Bird and implement Duck interface containing same function fly(). To call particular method of each class and interface we must be mention
+supertype name in angle brackets as super<Bird>.fly() and super<Duck>.fly() for each method.
+
+```
+open class Bird {
+    open var color = "Black"
+    open fun fly() {
+println("Bird is flying...")
+    }
+}
+interface Duck {
+     fun fly() {
+println("Duck is flying...")
+    }
+}
+class Parrot: Bird(),Duck {
+    override var color = "Green"
+    override fun fly() {
+        super<Bird>.fly()
+        super<Duck>.fly()
+println("Parrot is flying...")
+
+    }
+}
+fun main(args: Array<String>) {
+val p = Parrot()
+    p.fly()
+println(p.color)
+
+}
+```
