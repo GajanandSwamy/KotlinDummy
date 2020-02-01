@@ -841,9 +841,9 @@ Kotlin data class copy() method
 The data class provides a copy() method which is used to create a copy (or colon) of object.
  Using copy() method, some or all properties of object can be altered.
 
+
 ```
  data class Product(var item: String, var price: Int)
-
  fun main(agrs: Array<String>) {
  val p1 = Product("laptop", 25000)
  println("p1 object contain data : $p1")
@@ -852,8 +852,8 @@ The data class provides a copy() method which is used to create a copy (or colon
  val p3 = p1.copy(price = 20000)
  println("p3 contain altered data of p1 : $p3")
  }
-
 ```
+
 
 output:
 
@@ -871,17 +871,17 @@ These default values can be changed later on program if required.
 
 ```
 data class Product(var item: String = "laptop", var price: Int = 25000)
-
 fun main(agrs: Array<String>) {
 val p1 = Product(price = 20000)
 println(p1)
 }
-
 ```
 
 op:
 
+
 ```
 Product(item=laptop, price=20000)
+
 ```
 
