@@ -887,3 +887,143 @@ Product(item=laptop, price=20000)
 
 ```
 
+
+Kotlin Sealed Class
+=======================
+* It is used to represent restricted class hierarchy.
+* The constructors of sealed classes are private in default and cannot be allowed as non-private.
+* The subclasses of sealed classes must be declared in the same file in which sealed class itself.
+
+```
+sealed class Shape{
+    class Circle(var radius: Float): Shape()
+    class Square(var length: Int): Shape()
+    class Rectangle(var length: Int, var breadth: Int): Shape()
+ object NotAShape : Shape()
+}
+```
+
+
+A sealed class is implicitly an abstract class which cannot be instantiated.
+
+```
+sealed class MyClass
+fun main(args: Array<String>)
+{
+var myClass = MyClass() //compiler error. sealed types cannot be instantiated.
+}
+```
+
+Sealed classes are commonly used with when expression. As the sub classes of sealed classes have their own types act as a case.
+Due to this, when expression in sealed class covers all the cases and avoid to add else clause.
+
+```
+sealed class Shape{
+    class Circle(var radius: Float): Shape()
+    class Square(var length: Int): Shape()
+    class Rectangle(var length: Int, var breadth: Int): Shape()
+  //  object NotAShape : Shape()
+}
+
+fun eval(e: Shape) =
+        when (e) {
+            is Shape.Circle ->println("Circle area is ${3.14*e.radius*e.radius}")
+            is Shape.Square ->println("Square area is ${e.length*e.length}")
+            is Shape.Rectangle ->println("Rectagle area is ${e.length*e.breadth}")
+            //else -> "else case is not require as all case is covered above"
+          //  Shape.NotAShape ->Double.NaN
+        }
+fun main(args: Array<String>) {
+
+var circle = Shape.Circle(5.0f)
+var square = Shape.Square(5)
+var rectangle = Shape.Rectangle(4,5)
+
+eval(circle)
+eval(square)
+eval(rectangle)
+}
+```
+
+op:
+
+```
+Circle area is 78.5
+Square area is 25
+Rectagle area is 20
+```
+
+Kotlin Extension Function
+===========================
+Kotlin extension function provides a facility to "add" methods to class without inheriting a class or
+using any type of design pattern. The created extension functions are used as a
+regular function inside that class.
+
+```
+class Student{
+    fun isPassed(mark: Int): Boolean{
+        return mark>40
+    }
+}
+fun Student.isExcellent(mark: Int): Boolean{
+    return mark > 90
+}
+fun main(args: Array<String>){
+val student = Student()
+val passingStatus = student.isPassed(55)
+println("student passing status is $passingStatus")
+
+val excellentStatus = student.isExcellent(95)
+println("student excellent status is $excellentStatus")
+}
+```
+
+op:
+
+```
+student passing status is true
+student excellent status is true
+```
+
+
+Companion Object Extensions
+===========================
+
+
+A companion object is an object which is declared inside a class and marked with the companion keyword. Companion object
+is used to call the member function of class directly using the class name (like static in java).
+
+```
+class MyClass {
+    companion object {
+        fun create():String{
+            return "calls create method of companion object"
+        }
+    }
+}
+fun main(args: Array<String>){
+val instance = MyClass.create()
+}
+```
+
+Companion object extensions example
+====================================
+
+```
+class MyClass {
+    companion object {
+        fun create(): String {
+            return "calling create method of companion object"
+        }
+    }
+}
+fun MyClass.Companion.helloWorld() {
+println("executing extension of companion object")
+}
+fun main(args: Array<String>) {
+MyClass.helloWorld() //extension function declared upon the companion object
+}
+```
+
+
+
