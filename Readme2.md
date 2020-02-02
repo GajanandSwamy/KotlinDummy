@@ -1025,5 +1025,74 @@ MyClass.helloWorld() //extension function declared upon the companion object
 }
 ```
 
+Kotlin Generics
+===================
+
+Advantage of Generics
+Following are the key advantages of using generics:
+
+Type-safety: Generic allows to hold only single type of object. Generic does not allow to store other object.
+Type casting is not required: There is no need to typecast the object.
+Compile time checking: Generics code is checked at compile time so that it can avoid any problems at runtime.
+
+Kotlin generic example
+========================
+
+```
+fun main(args: Array<String>){
+val stringList: ArrayList<String> = arrayListOf<String>("Ashu","Ajay")
+val s: String = stringList[0]
+println("printing the string value of stringList: $s")
+printValue(stringList)
+val floatList: ArrayList<Float> = arrayListOf<Float>(10.5f,5.0f,25.5f)
+printValue(floatList)
+}
+fun <T>printValue(list: ArrayList<T>){
+    for(element in list){
+println(element)
+    }
+}
+```
 
 
+
+op:
+
+```
+printing the string value of stringList: Ashu
+Ashu
+Ajay
+10.5
+5.0
+25.5
+```
+
+Kotlin generic extension function example
+=========================================
+
+```
+fun main(args: Array<String>){
+val stringList: ArrayList<String> = arrayListOf<String>("Ashu","Ajay")
+stringList.printValue()
+val floatList: ArrayList<Float> = arrayListOf<Float>(10.5f,5.0f,25.5f)
+floatList.printValue()
+}
+fun <T>ArrayList<T>.printValue(){
+    for(element in this){
+println(element)
+    }
+}
+```
+
+op:
+
+```
+Ashu
+Ajay
+10.5
+5.0
+25.5
+```
+
+Kotlin Ranges
+================
