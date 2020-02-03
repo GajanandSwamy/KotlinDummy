@@ -7,13 +7,18 @@ fun main() {
 
     printv(list)
     printv(list2)
-
-
+    val s = (30.downTo(1))
+    var it = s.iterator()
+    while (it.hasNext()){
+        println(it.nextInt())
+    }
 }
 
 fun <T> printv(list: ArrayList<T>) {
     for (el in list) {
         println(el)
     }
+
+
 }
 

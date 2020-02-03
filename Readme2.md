@@ -1096,3 +1096,184 @@ Ajay
 
 Kotlin Ranges
 ================
+Kotlin range is defined as an interval from start value to the end value. Range expressions
+are created with operator (. .) which is complemented by in and !in. The value which is equal or
+greater than start value and smaller or equal to end value comes inside the defined range.
+
+Integral Type Ranges
+====================
+
+```
+fun main(args: Array<String>) {
+
+   for (a in 1..5){
+        print(a )
+    }
+println()
+for(x in 'a'..'f'){
+        print(x )
+    }
+println()
+val range = 1.0..5.0
+println(range)
+println("3.14 in range is ${3.14 in range}")
+}
+```
+
+op:
+
+```
+12345
+abcdef
+1.0..5.0
+3.14 in range is true
+```
+
+To iterate the element in decreasing order, use the standard library downTo() function or downTo keyword.
+
+```
+for (a in 5 downTo 1){
+        print(a )// 54321
+    }
+```
+
+The until() function or until keyword in range is used to exclude the last element. It iterates range from start to 1 less than end.
+
+```
+for (a in 1 until 5){
+        print(a ) // print 1234
+
+   }
+```
+
+The above range excludes 5 and iterate from 1 to 4.
+
+Kotlin range of integer
+Let's see an example of integer range using downTo(), downTo, and rangeTo() methods.
+
+```
+    fun main(args: Array<String>) {
+        for (x in 1..5)
+            print(x)
+println()
+        for (x in 5 downTo 1)
+            print(x)
+println()
+        for (x in 1.rangeTo(5))
+            print(x)
+println()
+        for (x in 5.downTo(1))
+            print(x)
+println()
+    }
+```
+op:
+
+```
+12345
+54321
+12345
+54321
+```
+
+Kotlin range of characters
+Example of Kotlin ranges using char data types.
+
+```
+fun main(args: Array<String>) {
+ (x in 'a'..'e')
+        print("$x ")
+ntln()
+    for (x in 'e' downTo 'a')
+        print("$x ")
+}
+```
+
+op:
+
+```
+a bcde
+edcba
+```
+
+
+Kotlin range step
+Kotlin step keyword in range is used to iterate the range in the interval of given step value (int value).
+
+```
+fun main(args: Array<String>) {
+        for (x in 1..10 step 2)
+            print("$x ")
+println()
+        for (x in 10 downTo 1 step 3)
+            print("$x ")
+    }
+```
+
+op:
+
+```
+1 3 5 7 9
+10 7 4 1
+```
+
+Kotlin range iterator
+=========================
+
+An iterator() method is also be used to iterate the range value.
+It uses hasNext() method which checks the next element
+in the range and next() method returns the next element of the range.
+
+```
+fun main(args: Array<String>) {
+
+val chars = ('a'..'e')
+val it = chars.iterator()
+    while (it.hasNext()) {
+val x = it.next()
+        print("$x ")
+    }
+}
+```
+op:
+
+a b c d e
+
+
+Kotlin step()
+The step() function ( or step operator) is used to return the range value in interval of given step value.
+A step value always takes a positive parameter.The negative step value generates
+the IllegalArgumentException exception.
+
+```
+fun main(args: Array<String>) {
+val range: IntRange = 1..10
+println("Print range value with step 2:")
+    for(x in range step (2)){
+        print("$x ")
+    }
+println("")
+println("Print range value with step 3:")
+    for(x in range step 3){
+        print("$x ")
+    }
+val first=((range step 2).first)
+val last=((range step 2).last)
+println("")
+println("First value of interval: $first")
+println("Last value of interval: $last ")
+}
+```
+
+
+op:
+
+```
+Print range value with step 2:
+1 3 5 7 9
+Print range value with step 3:
+1 4 7 10
+First value of interval: 1
+Last value of interval: 9
+```
+
