@@ -2,6 +2,7 @@ package com.example.gajanand.kotlindummy
 
 fun main() {
     var a: Int = 10;
+    var c: Int =30;
     var b: Int = 20;
 
     var max: Int = if (a > b) a else b;
