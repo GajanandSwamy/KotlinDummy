@@ -3,7 +3,7 @@ package com.example.gajanand.kotlindummy
 class Test
 
 fun main(args: Array<String>) {
-    val a: Int = 200
+    val a: Int = 400
     val b: Double = 100.00
     val c: Float = 100.89f
 
