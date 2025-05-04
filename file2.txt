@@ -2,3 +2,5 @@ file 2 for test
 
 
 //some changers
+
+//some fixes
